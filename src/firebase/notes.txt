@@ -1,0 +1,14 @@
+QUERY REFERENCE AND QUERY SNAPSHOT OBJECTS: Firestore returns us two types of object: references and snapshots. Of these objects, they can be either Document or Collection versions. Firestore will always return us these objects, even if nothing exists from that query.
+
+A query is a request we make to firestore to give up something from the database.
+
+
+A queryReference object is an object that represents the 'curent' place in the database that we are querying.
+We get them by calling either:
+    firestore.doc(pathname)
+    firestore.collections(pathname)
+The queryReferece object does not have the actual data of the collection or document. It instead has properties that tell us details about it, or the method to get the snapshot object which gives us the data we are looking for.
+
+We get a documentSnapshot object from our documentReference object. The documentSnapshot object allows us to check if a document exiests at this query using the .exists property which returns a boolean.
+We can also get the actual properties on the object by calling the .data() method. Which returns us a json object of the document.
+
